@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block zawartosc %}
+    <table border = 1>
+        <tr>
+            <th>Model</th><th>Marka</th>
+        </tr>
+        {% for car in cars %}
+        <tr>
+            <td>
+                {{ car.model }}
+            </td>
+
+            <td>
+                {{ car.marka }}
+            </td>
+
+        </tr>
+            {% empty %}
+            nie ma aut
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'index.html' %}
+{% block zawartosc %}
+    czy jestes pewien ze chcesz usunac {{ author }}
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" name="action" value="YES">
+    <input type="submit" name="action" value="NO">
+</form>
+{% endblock %}

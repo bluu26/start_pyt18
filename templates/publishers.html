@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block zawartosc %}
+    <form>
+        <input type="text", name="name">
+        <input type="text", name="sub_name">
+        <input type="submit">
+    </form>
+<ul>
+    {% for publisher in publishers %}
+    <li>
+        {{ publisher.name }} {{ publisher.sub_name }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

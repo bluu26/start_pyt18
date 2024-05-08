@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% block zawartosc %}
+    <form>
+        <input type="text", name="name">
+        <input type="submit">
+    </form>
+<ul>
+    {% for genre in genres %}
+    <li>
+        {{ genre.name }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

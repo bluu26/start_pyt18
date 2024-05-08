@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block zawartosc %}
+    <form>
+    <input type="text", name="first_name">
+    <input type="text", name="last_name">
+    <input type="submit">
+    </form>
+<ul>
+    {% for author in authors %}
+    <li>
+        <a href=" {% url 'detail_author' author.id %}">{{ author.first_name }} {{ author.last_name }}</a><a href="{% url 'delete_author' author.id %}">X</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

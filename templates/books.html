@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% block zawartosc %}
+    <table>
+        <thread>
+            <tr>
+                <td>Tytul</td><td>Rok wydania</td><td>Autor</td><td>Gatunki</td>
+            </tr>
+        </thread>
+        <tbody>
+        {% for book in books %}
+            <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.year }}</td>
+            <td>{{ book.author }}</td>
+            <td>
+                <ul>
+                    {% for genre in book.genres.all %}
+                        <li>{{ genre }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

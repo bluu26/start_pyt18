@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+{% block zawartosc %}
+    {{ author }}
+    <ul>
+    {% for book in author.book_set.all %}
+        <li>
+        {{ book.title }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
