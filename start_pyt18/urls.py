@@ -34,6 +34,7 @@ urlpatterns = [
     path('add_genre/', views.add_genre, name="add_genre"),
     path('cars/<int:a>/', views.mycar, name="mycar"),
     path('books/', views.book_list, name="book_list"),
+    path('update_book/<int:pk>', views.update_book, name="update_book"),
     path('genre/', views.genre_list, name="genre_list"),
     path('liczba/', views.losuj, name="losuj"),
     path('dod/<int:a>/<int:b>/', views.dodawanie, name="dodawanie"),

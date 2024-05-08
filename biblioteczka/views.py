@@ -223,6 +223,24 @@ def genre_list(request):
         return render(request, 'genre.html', {'genres': genres})
 
 
+def update_book(request, pk):
+    book = Book.objects.get(id=pk)
+    authors = Author.objects.all()
+    genres = Genre.objects.all()
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        year = request.POST.get('year')
+        author = request.POST.get('author')
+        genres = request.POST.getlist('genres')
+        book.title = title
+        book.year = year
+        book.author_id = author
+        book.save()
+        book.genres.set(genres)
+    return render(request, 'add_book.html',
+                  {'book': book, 'authors': authors, 'genres': genres})
+
+
 
 
 

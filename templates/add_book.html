@@ -2,15 +2,20 @@
 {% block zawartosc %}
 <form method="POST">
     {% csrf_token %}
-    <input type="text" name="title" placeholder="Tytul">
-    <input type="number" name="year" placeholder="Rok wydania">
+    <input type="text" name="title" placeholder="Tytul" value="{{ book.title }}">
+    <input type="number" name="year" placeholder="Rok wydania" value="{{ book.year }}">
     <select name="author">
         {% for author in authors %}
-        <option value="{{ author.id }}">{{ author }}</option>
+        <option 
+            {% if author == book.author %}
+                selected
+                {% endif %}
+                value = "{{ author.id }}">{{ author }}
+            </option>
         {% endfor %}
     </select><br>
     {% for genre in genres %}
-    <input type="checkbox" name="genre" value="{{ genre.id }}"> {{ genre }}<br>
+    <input type="checkbox" name="genres" value="{{ genre.id }}"> {{ genre }}<br>
     {% endfor %}
     <input type="submit" value="DETONUJ">
 </form>
